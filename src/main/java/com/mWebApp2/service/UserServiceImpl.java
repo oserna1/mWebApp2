@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.mWebApp2.dao.UserDao;
 import com.mWebApp2.model.User;
 
-@Service("userService")
+@Service
 @Transactional
 public class UserServiceImpl implements UserService{
 	
@@ -35,6 +35,10 @@ public class UserServiceImpl implements UserService{
 
 	public void updateUser(User user) {
 		dao.updateUser(user);	
+	}
+	
+	public User findByEmail(String email) {
+		return dao.findByEmail(email);
 	}
 
 }

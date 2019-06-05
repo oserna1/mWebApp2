@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.mWebApp2.model.User;
 
-@Repository("UserDao")
+@Repository
 public class UserDaoImpl implements UserDao{
 	
 	@Autowired
@@ -48,4 +48,12 @@ public class UserDaoImpl implements UserDao{
 		sessionFactory.getCurrentSession().update(user);
 		
 	}
+	
+	@Override
+	public User findByEmail(String email) {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(User.class);
+        criteria.add(Restrictions.eq("email",email));
+        return (User) criteria.uniqueResult();
+	}
+	
 }
