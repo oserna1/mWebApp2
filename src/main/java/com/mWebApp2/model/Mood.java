@@ -2,45 +2,31 @@ package com.mWebApp2.model;
 
 import java.sql.Timestamp;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity
-@Table(name="mood")
 public class Mood {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "moodRange")
-	private int moodRange;
+	private Integer moodRange;
 	
-	@Column(name = "description")
 	private String description;
-	
-	@Column(name = "ts")
+
 	private Timestamp ts;
-	
-	@Column(name = "uid")
+
 	private Long uid;
 	
-	public Mood() {
-		id = (long) 0;
+	public Mood(){
+		this.id = (long) 0;
 	}
 	
-	public Mood(long id, int moodRange, String description, Timestamp ts, Long uid) {
+	public Mood(Long id, Integer moodRange, String description, Timestamp ts, Long uid){
 		this.id = id;
 		this.moodRange = moodRange;
 		this.description = description;
 		this.ts = ts;
 		this.uid = uid;
 	}
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -53,7 +39,7 @@ public class Mood {
 		return moodRange;
 	}
 
-	public void setMoodRange(int moodRange) {
+	public void setMoodRange(Integer moodRange) {
 		this.moodRange = moodRange;
 	}
 

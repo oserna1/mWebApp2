@@ -2,20 +2,20 @@ package com.mWebApp2.dao;
 
 import java.util.List;
 
-import com.mWebApp2.model.Mood;
+import com.mWebApp2.model.MoodData;
 
 public interface MoodDao {
 	
-	void saveMood(Mood mood);
+	MoodData saveMood(MoodData moodData);
 	
-	List<Mood> findAllMoods();
+	List<MoodData> findAllMoods();
 	
-	void deleteMoodbyId(Long id);
+	int deleteMoodbyId(Long id);
 	
-	Mood findById(Long id);
+	MoodData findById(Long id);
 	
-	List<Mood> findByUid(Long uid);
+	List<MoodData> findByUid(Long uid);
 	
-	void updateMood(Mood mood);
+	MoodData updateMood(MoodData moodData);
 
 }

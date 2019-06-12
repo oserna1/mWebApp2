@@ -6,15 +6,15 @@ import com.mWebApp2.model.User;
 
 public interface UserDao {
 	
-	void saveUser(User user);
+	User saveUser(User user);
 	
 	List<User> findAllUsers();
 	
-	void deleteUserbyId(Long id);
+	int deleteUserbyId(Long id);
 	
 	User findById(Long id);
 	
-	void updateUser(User user);
+	User updateUser(User user);
 	
 	User findByEmail(String email);
 	

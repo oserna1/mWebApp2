@@ -46,7 +46,7 @@ public class WebAppRestController {
         User user = userService.findById(id);
         if (user == null) {
             System.out.println("User with id " + id + " not found");
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
@@ -60,7 +60,7 @@ public class WebAppRestController {
  
         if (userService.findByEmail(user.getEmail())!= null) {
             System.out.println("A User with email " + user.getEmail() + " already exist");
-            return new ResponseEntity<>(false, HttpStatus.CONFLICT);
+            return new ResponseEntity<>(false, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         userService.saveUser(user);
         return new ResponseEntity<>(true, HttpStatus.CREATED);
@@ -77,7 +77,8 @@ public class WebAppRestController {
          
         if (currentUser==null) {
             System.out.println("User with id " + id + " not found");
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+
         }
          
         userService.updateUser(user);
@@ -94,24 +95,12 @@ public class WebAppRestController {
         User user = userService.findById(id);
         if (user == null) {
             System.out.println("Unable to delete. User with id " + id + " not found");
-            return new ResponseEntity<>(false, HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(false, HttpStatus.INTERNAL_SERVER_ERROR);
         }
- 
-        userService.deleteUserById(id);
-        return new ResponseEntity<>(true, HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(userService.deleteUserById(id), HttpStatus.OK);
     }
     
-    
-/*
-  //------------------- Delete All Users --------------------------------------------------------
-    
-    @RequestMapping(value = "/user/", method = RequestMethod.DELETE)
-    public ResponseEntity<User> deleteAllUsers() {
-        System.out.println("Deleting All Users");
-        userService.deleteAllUsers();
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
-   */
+
   //-------------------Retrieve Moods by UserId--------------------------------------------------------
     
     @RequestMapping(value = "/track/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -120,31 +109,17 @@ public class WebAppRestController {
         List<Mood> moods = moodService.findByUid(uid);
         if (moods == null) {
             System.out.println("Moods with user id: " + uid + " not found");
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(moods, HttpStatus.OK);
     }
- /*   
-//-------------------Retrieve Single Mood--------------------------------------------------------
-    
-    @RequestMapping(value = "/track/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Mood> getMood(@PathVariable("id") Long id) {
-        System.out.println("Fetching Mood with id " + id);
-        Mood mood = moodService.findById(id);
-        if (mood == null) {
-            System.out.println("Mood with id " + id + " not found");
-            return new ResponseEntity<Mood>(HttpStatus.NOT_FOUND);
-        }
-        return new ResponseEntity<Mood>(mood, HttpStatus.OK);
-    }
-    */
+
     
   //-------------------Create a Mood--------------------------------------------------------
     
     @RequestMapping(value = "/track/", method = RequestMethod.POST)
     public ResponseEntity<Boolean> createMood(@RequestBody Mood mood) {
-        moodService.saveMood(mood);
-        return new ResponseEntity<>(true, HttpStatus.CREATED);
+        return new ResponseEntity<>( moodService.saveMood(mood)!=null, HttpStatus.OK);
     }
     
     
@@ -158,10 +133,9 @@ public class WebAppRestController {
          
         if (currentMood==null) {
             System.out.println("Mood with id " + id + " not found");
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        moodService.updateMood(mood);
-        return new ResponseEntity<>(currentMood, HttpStatus.OK);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }  
+        return new ResponseEntity<>(moodService.updateMood(mood), HttpStatus.OK);
     }
     
   //------------------- Delete a Mood --------------------------------------------------------
@@ -173,20 +147,9 @@ public class WebAppRestController {
         Mood mood = moodService.findById(id);
         if (mood == null) {
             System.out.println("Unable to delete. Mood with id " + id + " not found");
-            return new ResponseEntity<>(false, HttpStatus.NOT_FOUND);
-        }
-        moodService.deleteMoodById(id);
-        return new ResponseEntity<>(true, HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(false, HttpStatus.INTERNAL_SERVER_ERROR);
+        }  
+        return new ResponseEntity<>(moodService.deleteMoodById(id), HttpStatus.OK);
     }
- /*   
-  //------------------- Delete All Moods --------------------------------------------------------
-    
-    @RequestMapping(value = "/track/", method = RequestMethod.DELETE)
-    public ResponseEntity<Mood> deleteAllMoods() {
-        System.out.println("Deleting All Moods");
- 
-        moodService.deleteAllMoods();
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
-	*/
+
 }

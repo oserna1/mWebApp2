@@ -6,15 +6,15 @@ import com.mWebApp2.model.User;
 
 public interface UserService {
 
-	void saveUser(User user);
+	User saveUser(User user);
 	
 	List<User> findAllUsers();
 	
-	void deleteUserById(Long id);
+	boolean deleteUserById(Long id);
 	
 	User findById(Long id);
 	
 	User findByEmail(String email);
 	
-	void updateUser(User user);
+	User updateUser(User user);
 }

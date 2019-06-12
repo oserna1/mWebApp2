@@ -16,8 +16,8 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	private UserDao dao;
 
-	public void saveUser(User user) {
-		dao.saveUser(user);
+	public User saveUser(User user) {
+		return dao.saveUser(user);
 		
 	}
 
@@ -25,16 +25,16 @@ public class UserServiceImpl implements UserService{
 		return dao.findAllUsers();
 	}
 
-	public void deleteUserById(Long id) {
-		dao.deleteUserbyId(id);		
+	public boolean deleteUserById(Long id) {
+		return dao.deleteUserbyId(id) > 0;	
 	}
 
 	public User findById(Long id) {
 		return dao.findById(id);
 	}
 
-	public void updateUser(User user) {
-		dao.updateUser(user);	
+	public User updateUser(User user) {
+		 return dao.updateUser(user);	
 	}
 	
 	public User findByEmail(String email) {

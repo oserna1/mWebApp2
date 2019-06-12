@@ -17,8 +17,9 @@ public class UserDaoImpl implements UserDao{
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	public void saveUser(User user) {
+	public User saveUser(User user) {
 		sessionFactory.getCurrentSession().persist(user);
+		return user;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -29,11 +30,10 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	@Override
-	public void deleteUserbyId(Long id) {
+	public int deleteUserbyId(Long id) {
 		Query query = sessionFactory.getCurrentSession().createSQLQuery("delete from User where id = :id");
         query.setLong("id", id);
-        query.executeUpdate();
-		
+        return query.executeUpdate();
 	}
 
 	@Override
@@ -44,8 +44,9 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	@Override
-	public void updateUser(User user) {
+	public User updateUser(User user) {
 		sessionFactory.getCurrentSession().update(user);
+		return user;
 		
 	}
 	

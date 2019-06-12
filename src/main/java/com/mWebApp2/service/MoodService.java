@@ -6,15 +6,15 @@ import com.mWebApp2.model.Mood;
 
 public interface MoodService {
 	
-	void saveMood(Mood mood);
+	Mood saveMood(Mood mood);
 	
 	List<Mood> findAllMoods();
 	
-	void deleteMoodById(Long id);
+	boolean deleteMoodById(Long id);
 	
 	Mood findById(Long id);
 	
 	List<Mood> findByUid(Long uid);
 	
-	void updateMood(Mood mood);
+	Mood updateMood(Mood mood);
 }

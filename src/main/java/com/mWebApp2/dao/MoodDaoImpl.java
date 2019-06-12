@@ -9,7 +9,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.mWebApp2.model.Mood;
+import com.mWebApp2.model.MoodData;
 
 @Repository
 public class MoodDaoImpl implements MoodDao{
@@ -18,42 +18,44 @@ public class MoodDaoImpl implements MoodDao{
 	private SessionFactory sessionFactory;
 
 	@Override
-	public void saveMood(Mood mood) {
-		sessionFactory.getCurrentSession().persist(mood);
+	public MoodData saveMood(MoodData moodData) {
+		sessionFactory.getCurrentSession().persist(moodData);
+		return moodData;
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Mood> findAllMoods() {
-		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Mood.class);
-		return (List<Mood>) criteria.list();
+	public List<MoodData> findAllMoods() {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(MoodData.class);
+		return (List<MoodData>) criteria.list();
 	}
 
 	@Override
-	public void deleteMoodbyId(Long id) {
+	public int deleteMoodbyId(Long id) {
 		Query query = sessionFactory.getCurrentSession().createSQLQuery("delete from Mood where id = :id");
         query.setLong("id", id);
-        query.executeUpdate();
+        return query.executeUpdate();
 	}
 
 	@Override
-	public Mood findById(Long id) {
-		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Mood.class);
+	public MoodData findById(Long id) {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(MoodData.class);
         criteria.add(Restrictions.eq("id",id));
-        return (Mood) criteria.uniqueResult();
+        return (MoodData) criteria.uniqueResult();
 	}
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Mood> findByUid(Long uid) {
-		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Mood.class);
-        criteria.add(Restrictions.eq("uid",uid));
-        return (List<Mood>) criteria.list();
+	public List<MoodData> findByUid(Long uid) {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(MoodData.class);
+        criteria.add(Restrictions.eq("user.id",uid));
+        return (List<MoodData>) criteria.list();
 	}
 
 	@Override
-	public void updateMood(Mood mood) {
-		sessionFactory.getCurrentSession().update(mood);
+	public MoodData updateMood(MoodData moodData) {
+		sessionFactory.getCurrentSession().update(moodData);
+		return moodData;
 	}
 
 }

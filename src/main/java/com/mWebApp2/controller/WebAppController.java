@@ -19,12 +19,12 @@ public class WebAppController {
     private UserService userService;
 	
 	@RequestMapping(value = "/login/" , method=RequestMethod.GET)
-	public String login(@ModelAttribute (name="user") User user) {
+	public String completeLogin(@ModelAttribute (name="user") User user) {
 		return "Login";
 	}
 	
 	@RequestMapping(value="/validateCreate")
-	public String validateCreate(@Valid @ModelAttribute (name="user") User user, BindingResult result) {
+	public String validateCreateUser(@Valid @ModelAttribute (name="user") User user, BindingResult result) {
 		
 		if(result.hasErrors()) {
 			System.out.println("Form has errors");
@@ -38,7 +38,7 @@ public class WebAppController {
 	
 	
 	@RequestMapping(value = "/track/" , method=RequestMethod.GET)
-	public String track() {
+	public String trackMoods() {
 		return "Track";
 	}
 	
