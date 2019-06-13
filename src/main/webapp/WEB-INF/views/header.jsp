@@ -17,13 +17,13 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="<c:url value='/' />">Home</a>
+        <a id="homeLink" class="nav-link" href="<c:url value='/' />">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<c:url value='/login/' />">Login</a>
+        <a id="loginLink" class="nav-link" href="<c:url value='/login/' />">Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<c:url value='/track/' />">Track</a>
+        <a id="trackLink" class="nav-link" href="<c:url value='/track/' />">Track</a>
       </li>
     </ul>
   </div>

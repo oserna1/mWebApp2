@@ -1,41 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="6" passed="6">
+<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="372" started-at="2019-06-13T04:55:22Z" finished-at="2019-06-13T04:55:22Z">
+  <suite name="Default suite" duration-ms="22965" started-at="2019-06-13T20:24:27Z" finished-at="2019-06-13T20:24:50Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="372" started-at="2019-06-13T04:55:22Z" finished-at="2019-06-13T04:55:22Z">
-      <class name="mWebApp2.backEnd.MoodServiceTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:mWebApp2.backEnd.MoodServiceTest@59f99ea]" name="setUp" is-config="true" duration-ms="330" started-at="2019-06-13T04:55:22Z" finished-at="2019-06-13T04:55:22Z">
+    <test name="Default test" duration-ms="22965" started-at="2019-06-13T20:24:27Z" finished-at="2019-06-13T20:24:50Z">
+      <class name="mWebApp2.frontEnd.FrontEndTest">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:mWebApp2.frontEnd.FrontEndTest@28eaa59a]" name="beforeTest" is-config="true" duration-ms="16" started-at="2019-06-13T20:24:27Z" finished-at="2019-06-13T20:24:27Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="testAddMeeting_returnsMeeting()[pri:0, instance:mWebApp2.backEnd.MoodServiceTest@59f99ea]" name="testAddMeeting_returnsMeeting" duration-ms="18" started-at="2019-06-13T04:55:22Z" finished-at="2019-06-13T04:55:22Z">
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:mWebApp2.frontEnd.FrontEndTest@28eaa59a]" name="beforeClass" is-config="true" duration-ms="3078" started-at="2019-06-13T20:24:27Z" finished-at="2019-06-13T20:24:30Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testAddMeeting_returnsMeeting -->
-        <test-method status="PASS" signature="testConvertEntity_returnViewModel()[pri:0, instance:mWebApp2.backEnd.MoodServiceTest@59f99ea]" name="testConvertEntity_returnViewModel" duration-ms="1" started-at="2019-06-13T04:55:22Z" finished-at="2019-06-13T04:55:22Z">
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="openApp()[pri:1, instance:mWebApp2.frontEnd.FrontEndTest@28eaa59a]" name="openApp" duration-ms="195" started-at="2019-06-13T20:24:30Z" finished-at="2019-06-13T20:24:30Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testConvertEntity_returnViewModel -->
-        <test-method status="PASS" signature="testConvertViewModel_returnEntity()[pri:0, instance:mWebApp2.backEnd.MoodServiceTest@59f99ea]" name="testConvertViewModel_returnEntity" duration-ms="2" started-at="2019-06-13T04:55:22Z" finished-at="2019-06-13T04:55:22Z">
+        </test-method> <!-- openApp -->
+        <test-method status="PASS" signature="login()[pri:2, instance:mWebApp2.frontEnd.FrontEndTest@28eaa59a]" name="login" duration-ms="698" started-at="2019-06-13T20:24:30Z" finished-at="2019-06-13T20:24:31Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testConvertViewModel_returnEntity -->
-        <test-method status="PASS" signature="testDeleteMeeting_returnsNumOfDeleted()[pri:0, instance:mWebApp2.backEnd.MoodServiceTest@59f99ea]" name="testDeleteMeeting_returnsNumOfDeleted" duration-ms="1" started-at="2019-06-13T04:55:22Z" finished-at="2019-06-13T04:55:22Z">
+        </test-method> <!-- login -->
+        <test-method status="PASS" signature="selectUser()[pri:3, instance:mWebApp2.frontEnd.FrontEndTest@28eaa59a]" name="selectUser" duration-ms="163" started-at="2019-06-13T20:24:31Z" finished-at="2019-06-13T20:24:31Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testDeleteMeeting_returnsNumOfDeleted -->
-        <test-method status="PASS" signature="testRetrieveMeetings_returnsMeetings()[pri:0, instance:mWebApp2.backEnd.MoodServiceTest@59f99ea]" name="testRetrieveMeetings_returnsMeetings" duration-ms="1" started-at="2019-06-13T04:55:22Z" finished-at="2019-06-13T04:55:22Z">
+        </test-method> <!-- selectUser -->
+        <test-method status="PASS" signature="updateMood()[pri:5, instance:mWebApp2.frontEnd.FrontEndTest@28eaa59a]" name="updateMood" duration-ms="452" started-at="2019-06-13T20:24:31Z" finished-at="2019-06-13T20:24:32Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testRetrieveMeetings_returnsMeetings -->
-        <test-method status="PASS" signature="testUpdateMeeting_returnsMeeting()[pri:0, instance:mWebApp2.backEnd.MoodServiceTest@59f99ea]" name="testUpdateMeeting_returnsMeeting" duration-ms="2" started-at="2019-06-13T04:55:22Z" finished-at="2019-06-13T04:55:22Z">
+        </test-method> <!-- updateMood -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:mWebApp2.frontEnd.FrontEndTest@28eaa59a]" name="afterTest" is-config="true" duration-ms="18335" started-at="2019-06-13T20:24:32Z" finished-at="2019-06-13T20:24:50Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testUpdateMeeting_returnsMeeting -->
-      </class> <!-- mWebApp2.backEnd.MoodServiceTest -->
+        </test-method> <!-- afterTest -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:mWebApp2.frontEnd.FrontEndTest@28eaa59a]" name="afterClass" is-config="true" duration-ms="0" started-at="2019-06-13T20:24:32Z" finished-at="2019-06-13T20:24:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- mWebApp2.frontEnd.FrontEndTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

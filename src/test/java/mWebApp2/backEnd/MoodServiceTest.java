@@ -62,15 +62,34 @@ public class MoodServiceTest {
 	}
 	
 	@Test
-	public void testRetrieveMeetings_returnsMeetings() {
+	public void testRetrieveMeetingsByUserId_returnsMeetings() {
 		Mockito.when(moodDaoMock.findByUid(Mockito.any(Long.class))).thenReturn(moodEntityList);	
 		Assert.assertNotNull(moodService.findByUid(expectedMood.getUid()));
+	}
+	
+	@Test
+	public void testRetrienveAllMeetings_returnMeetings() {
+		Mockito.when(moodDaoMock.findAllMoods()).thenReturn(moodEntityList);
+		Assert.assertNotNull(moodService.findAllMoods());
+	}
+	
+	@Test
+	public void testRerieveMeeting_returnMeeting() {
+		Mockito.when(moodDaoMock.findById(Mockito.any(Long.class))).thenReturn(mockedMood);
+		actualMood = moodService.findById(expectedMood.getId());
+		Assert.assertTrue(new ReflectionEquals(expectedMood,"ts").matches(actualMood));
 	}
 	
 	@Test
 	public void testDeleteMeeting_returnsNumOfDeleted() {
 		Mockito.when(moodDaoMock.deleteMoodbyId(Mockito.any(Long.class))).thenReturn(1);
 		Assert.assertTrue(moodService.deleteMoodById(actualMood.getId()));
+	}
+	
+	@Test
+	public void testDeleteMeeting_returnsFalse() {
+		Mockito.when(moodDaoMock.deleteMoodbyId(Mockito.any(Long.class))).thenReturn(0);
+		Assert.assertFalse(moodService.deleteMoodById(actualMood.getId()));
 	}
 	
 	@Test

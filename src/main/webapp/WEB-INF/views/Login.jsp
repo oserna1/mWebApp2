@@ -21,7 +21,7 @@
 		      <form:input path="password" name="password" type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password"/>
 		      <form:errors path="password" cssClass="error" />
 		    </div>
-		    <button type="submit" class="btn btn-primary">Sign in</button>
+		    <button id="loginSubmitButton" type="submit" class="btn btn-primary">Sign in</button>
 		  </form:form>
 		</div>
 	
