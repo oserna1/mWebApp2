@@ -5,9 +5,8 @@
     <classes>
       <class name="mWebApp2.backEnd.MoodServiceTest">
         <methods>
-          <include name="testRetrieveMeetings_returnsMeetings"/>
           <include name="setUp"/>
-          <include name="testAddMeeting_returnsMeeting"/>
+          <include name="testConvertViewModel_returnEntity"/>
         </methods>
       </class> <!-- mWebApp2.backEnd.MoodServiceTest -->
     </classes>
