@@ -3,16 +3,21 @@
 
 <body ng-app="myApp">
 	<div ng-controller="MoodController as ctrl" class="container">
+			<h1 id="trackPageHeader">Track</h1>
 			<div class="dropdown">
 				<button id="userDropdownButton" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
 					Users
 				</button>
 				<div class="dropdown-menu">
-					<div ng-repeat="u in ctrl.users" ng-click="ctrl.setUid(u.id); ctrl.fetchMoodsByUid(u.id)">
+					<div ng-repeat="u in ctrl.users" ng-click="ctrl.setUid(u.id); ctrl.fetchMoodsByUid(u.id); ctrl.setDisplayUsername(u.username)">
 						<p id="u-{{$index}}" ng-bind="u.username" class="dropdown-item"></p>
 					</div>
 				</div>	
 			</div>
+			<div>
+				<h2 id="selectedUserHeader"> Selected User : {{ctrl.displayUsername}} </h2>
+			</div>
+			
           <div class="panel panel-default">
               <div class="panel-heading"><span class="lead"></span></div>
               <div class="formcontainer">
@@ -63,11 +68,11 @@
                       </thead>
                       <tbody>
                           <tr ng-repeat="m in ctrl.moods">
-                              <td><span ng-bind="m.id"></span></td>
-                              <td><span ng-bind="m.moodRange"></span></td>
-                              <td><span ng-bind="m.description"></span></td>
-                              <td><span ng-bind="m.ts"></span></td>
-                              <td><span ng-bind="m.uid"></span></td>
+                              <td><span id="moodIdm-{{$index}}" ng-bind="m.id"></span></td>
+                              <td><span id="moodRangem-{{$index}}" ng-bind="m.moodRange"></span></td>
+                              <td><span id="moodDescriptionm-{{$index}}" ng-bind="m.description"></span></td>
+                              <td><span id="moodTimestampm-{{$index}}" ng-bind="m.ts"></span></td>
+                              <td><span id="moodUserIDm-{{$index}}" ng-bind="m.uid"></span></td>
                               <td>
                               <button id="editButtonm-{{$index}}" type="button" ng-click="ctrl.edit(m.id)" class="btn btn-success custom-width">Edit</button>  <button id="deleteButtonm-{{$index}}" type="button" ng-click="ctrl.remove(m.id)" class="btn btn-danger custom-width">Remove</button>
                               </td>

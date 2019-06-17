@@ -13,6 +13,7 @@
 	    self.user={id:null,username:'',email:'', password:''};
 	    self.users=[];
 	    self.userId = null;
+	    self.displayUsername = "";
 	
 	    self.submit = submit;
 	    self.edit = edit;
@@ -20,6 +21,7 @@
 	    self.reset = reset;
 	    self.fetchMoodsByUid = fetchMoodsByUid;
 	    self.setUid = setUid;
+	    self.setDisplayUsername = setDisplayUsername;
 	    
 	    self.submitUser = submitUser
 	    self.editUser = editUser
@@ -31,6 +33,10 @@
 	    
 	    function setUid(uid){
 	    	self.userId = uid;
+	    }
+	    
+	    function setDisplayUsername(username){
+	    	self.displayUsername = username;
 	    }
 	
 	    function fetchMoodsByUid(uid){

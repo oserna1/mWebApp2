@@ -3,9 +3,10 @@
  
 	<body>
 
-	
+		
 		<div class="container col-md-4 col-md-offset-4" style="margin-top:5%">
 		  <form:form commandName="user" method="POST" class="px-4 py-3" action="/mWebApp2/validateCreate">
+		  <h1 id="loginHeader">Login</h1>	
 		  	<div class="form-group">
 		      <label for="exampleDropdownFormUsername">Username</label>
 		      <form:input path="username" name="username" type="text" class="form-control" id="exampleDropdownFormUsername" placeholder="Username"/>

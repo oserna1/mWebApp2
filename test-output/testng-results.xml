@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
+<testng-results skipped="0" failed="0" ignored="0" total="6" passed="6">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="22965" started-at="2019-06-13T20:24:27Z" finished-at="2019-06-13T20:24:50Z">
+  <suite name="Default suite" duration-ms="9050" started-at="2019-06-17T04:35:51Z" finished-at="2019-06-17T04:36:00Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="22965" started-at="2019-06-13T20:24:27Z" finished-at="2019-06-13T20:24:50Z">
+    <test name="Default test" duration-ms="9050" started-at="2019-06-17T04:35:51Z" finished-at="2019-06-17T04:36:00Z">
       <class name="mWebApp2.frontEnd.FrontEndTest">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:mWebApp2.frontEnd.FrontEndTest@28eaa59a]" name="beforeTest" is-config="true" duration-ms="16" started-at="2019-06-13T20:24:27Z" finished-at="2019-06-13T20:24:27Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:mWebApp2.frontEnd.FrontEndTest@28eaa59a]" name="beforeClass" is-config="true" duration-ms="3078" started-at="2019-06-13T20:24:27Z" finished-at="2019-06-13T20:24:30Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:mWebApp2.frontEnd.FrontEndTest@464bee09]" name="beforeClass" is-config="true" duration-ms="3594" started-at="2019-06-17T04:35:51Z" finished-at="2019-06-17T04:35:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="openApp()[pri:1, instance:mWebApp2.frontEnd.FrontEndTest@28eaa59a]" name="openApp" duration-ms="195" started-at="2019-06-13T20:24:30Z" finished-at="2019-06-13T20:24:30Z">
+        <test-method status="PASS" signature="openApp()[pri:1, instance:mWebApp2.frontEnd.FrontEndTest@464bee09]" name="openApp" duration-ms="807" started-at="2019-06-17T04:35:54Z" finished-at="2019-06-17T04:35:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApp -->
-        <test-method status="PASS" signature="login()[pri:2, instance:mWebApp2.frontEnd.FrontEndTest@28eaa59a]" name="login" duration-ms="698" started-at="2019-06-13T20:24:30Z" finished-at="2019-06-13T20:24:31Z">
+        <test-method status="PASS" signature="login()[pri:2, instance:mWebApp2.frontEnd.FrontEndTest@464bee09]" name="login" duration-ms="1811" started-at="2019-06-17T04:35:55Z" finished-at="2019-06-17T04:35:57Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method status="PASS" signature="selectUser()[pri:3, instance:mWebApp2.frontEnd.FrontEndTest@28eaa59a]" name="selectUser" duration-ms="163" started-at="2019-06-13T20:24:31Z" finished-at="2019-06-13T20:24:31Z">
+        <test-method status="PASS" signature="selectUser()[pri:3, instance:mWebApp2.frontEnd.FrontEndTest@464bee09]" name="selectUser" duration-ms="543" started-at="2019-06-17T04:35:57Z" finished-at="2019-06-17T04:35:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- selectUser -->
-        <test-method status="PASS" signature="updateMood()[pri:5, instance:mWebApp2.frontEnd.FrontEndTest@28eaa59a]" name="updateMood" duration-ms="452" started-at="2019-06-13T20:24:31Z" finished-at="2019-06-13T20:24:32Z">
+        <test-method status="PASS" signature="addMood()[pri:4, instance:mWebApp2.frontEnd.FrontEndTest@464bee09]" name="addMood" duration-ms="679" started-at="2019-06-17T04:35:58Z" finished-at="2019-06-17T04:35:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addMood -->
+        <test-method status="PASS" signature="updateMood()[pri:5, instance:mWebApp2.frontEnd.FrontEndTest@464bee09]" name="updateMood" duration-ms="899" started-at="2019-06-17T04:35:58Z" finished-at="2019-06-17T04:35:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- updateMood -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:mWebApp2.frontEnd.FrontEndTest@28eaa59a]" name="afterTest" is-config="true" duration-ms="18335" started-at="2019-06-13T20:24:32Z" finished-at="2019-06-13T20:24:50Z">
+        <test-method status="PASS" signature="deleteMood()[pri:6, instance:mWebApp2.frontEnd.FrontEndTest@464bee09]" name="deleteMood" duration-ms="568" started-at="2019-06-17T04:35:59Z" finished-at="2019-06-17T04:36:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteMood -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:mWebApp2.frontEnd.FrontEndTest@464bee09]" name="afterTest" is-config="true" duration-ms="101" started-at="2019-06-17T04:36:00Z" finished-at="2019-06-17T04:36:00Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:mWebApp2.frontEnd.FrontEndTest@28eaa59a]" name="afterClass" is-config="true" duration-ms="0" started-at="2019-06-13T20:24:32Z" finished-at="2019-06-13T20:24:32Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterClass -->
       </class> <!-- mWebApp2.frontEnd.FrontEndTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
