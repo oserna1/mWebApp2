@@ -88,6 +88,7 @@ public class WebAppRestController {
     
   //------------------- Delete a User --------------------------------------------------------
     
+   
     @RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Boolean> deleteUser(@PathVariable("id") long id) {
         System.out.println("Fetching & Deleting User with id " + id);

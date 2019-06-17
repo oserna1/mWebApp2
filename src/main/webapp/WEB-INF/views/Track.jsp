@@ -67,15 +67,17 @@
                           </tr>
                       </thead>
                       <tbody>
-                          <tr ng-repeat="m in ctrl.moods">
-                              <td><span id="moodIdm-{{$index}}" ng-bind="m.id"></span></td>
-                              <td><span id="moodRangem-{{$index}}" ng-bind="m.moodRange"></span></td>
-                              <td><span id="moodDescriptionm-{{$index}}" ng-bind="m.description"></span></td>
-                              <td><span id="moodTimestampm-{{$index}}" ng-bind="m.ts"></span></td>
-                              <td><span id="moodUserIDm-{{$index}}" ng-bind="m.uid"></span></td>
-                              <td>
-                              <button id="editButtonm-{{$index}}" type="button" ng-click="ctrl.edit(m.id)" class="btn btn-success custom-width">Edit</button>  <button id="deleteButtonm-{{$index}}" type="button" ng-click="ctrl.remove(m.id)" class="btn btn-danger custom-width">Remove</button>
-                              </td>
+                          <tr ng-repeat="m in ctrl.moods"  id="moodRowsm-{{$index}}">
+                         
+                         		<td><span id="moodIdm-{{$index}}" ng-bind="m.id"></span></td>
+                            	<td><span id="moodRangem-{{$index}}" ng-bind="m.moodRange"></span></td>
+                             	<td><span id="moodDescriptionm-{{$index}}" ng-bind="m.description"></span></td>
+                             	<td><span id="moodTimestampm-{{$index}}" ng-bind="m.ts"></span></td>
+                           		<td><span id="moodUserIDm-{{$index}}" ng-bind="m.uid"></span></td>
+                            	<td>
+                             	<button id="editButtonm-{{$index}}" type="button" ng-click="ctrl.edit(m.id)" class="btn btn-success custom-width">Edit</button>  <button id="deleteButtonm-{{$index}}" type="button" ng-click="ctrl.remove(m.id)" class="btn btn-danger custom-width">Remove</button>
+                             	</td>
+                        
                           </tr>
                       </tbody>
                   </table>

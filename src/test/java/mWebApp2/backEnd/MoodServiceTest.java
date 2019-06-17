@@ -31,12 +31,12 @@ public class MoodServiceTest {
 	@InjectMocks
 	private MoodServiceImpl moodService;
 	
-	static Mood expectedMood;
-	static Mood actualMood;
-	static MoodData mockedMood;
-	static User mockedUser;
-	static List<MoodData> moodEntityList = new ArrayList<MoodData>();
-	static List<Mood> moodModelViewList = new ArrayList<Mood>();
+	private Mood expectedMood;
+	private Mood actualMood;
+	private MoodData mockedMood;
+	private User mockedUser;
+	private List<MoodData> moodEntityList = new ArrayList<MoodData>();
+	private List<Mood> moodModelViewList = new ArrayList<Mood>();
 	
 	@BeforeTest
 	public void setUp() throws Exception {
@@ -44,61 +44,68 @@ public class MoodServiceTest {
 		
 		Timestamp timestamp = new Timestamp(System.currentTimeMillis());	
 		
-		mockedUser = new User((long)3, "", "", "");
-		expectedMood = new Mood((long)1, 5, "happy", timestamp, (long)3);		
-		mockedMood = new MoodData((long)1, 5, "happy", timestamp, mockedUser);
+		mockedUser = new User(3L, "", "", "");
+		expectedMood = new Mood(1L, 5, "happy", timestamp, 3L);		
+		mockedMood = new MoodData(1L, 5, "happy", timestamp, mockedUser);
 		moodEntityList.add(mockedMood);
 		moodModelViewList.add(expectedMood);
 		
 	}
 	
 	@Test
-	public void testAddMeeting_returnsMeeting() {
-		//Mockito.when(userServiceMock.findById(Mockito.any(Long.class))).thenReturn(mockedUser);
-		Mockito.when(moodDaoMock.saveMood(Mockito.any(MoodData.class))).thenReturn(mockedMood);	
+	public void testAddMood_returnsMood() {
+		Mockito.when(moodDaoMock.saveMood(Mockito.any(MoodData.class))).thenReturn(mockedMood);
+		
 		actualMood = moodService.saveMood(expectedMood);
 		Assert.assertTrue(new ReflectionEquals(expectedMood,"ts").matches(actualMood));
-		
+		Assert.assertNotNull(actualMood.getTs());
 	}
 	
 	@Test
-	public void testRetrieveMeetingsByUserId_returnsMeetings() {
+	public void testRetrieveMoodsByUserId_returnsMoods() {
 		Mockito.when(moodDaoMock.findByUid(Mockito.any(Long.class))).thenReturn(moodEntityList);	
+		
 		Assert.assertNotNull(moodService.findByUid(expectedMood.getUid()));
+		Assert.assertFalse(moodService.findByUid(expectedMood.getUid()).isEmpty());
+		compareMoodLists(moodService.findByUid(expectedMood.getUid()));
 	}
 	
 	@Test
-	public void testRetrienveAllMeetings_returnMeetings() {
+	public void testRetrieveAllMoods_returnMoods() {
 		Mockito.when(moodDaoMock.findAllMoods()).thenReturn(moodEntityList);
+		
 		Assert.assertNotNull(moodService.findAllMoods());
+		Assert.assertFalse(moodService.findAllMoods().isEmpty());
+		compareMoodLists(moodService.findAllMoods());
 	}
 	
 	@Test
-	public void testRerieveMeeting_returnMeeting() {
+	public void testRetrieveMood_returnMood() {
 		Mockito.when(moodDaoMock.findById(Mockito.any(Long.class))).thenReturn(mockedMood);
 		actualMood = moodService.findById(expectedMood.getId());
 		Assert.assertTrue(new ReflectionEquals(expectedMood,"ts").matches(actualMood));
 	}
 	
 	@Test
-	public void testDeleteMeeting_returnsNumOfDeleted() {
+	public void testDeleteMood_returnsNumOfDeleted() {
 		Mockito.when(moodDaoMock.deleteMoodbyId(Mockito.any(Long.class))).thenReturn(1);
 		Assert.assertTrue(moodService.deleteMoodById(actualMood.getId()));
 	}
 	
 	@Test
-	public void testDeleteMeeting_returnsFalse() {
+	public void testDeleteMood_returnsFalse() {
 		Mockito.when(moodDaoMock.deleteMoodbyId(Mockito.any(Long.class))).thenReturn(0);
 		Assert.assertFalse(moodService.deleteMoodById(actualMood.getId()));
 	}
 	
 	@Test
-	public void testUpdateMeeting_returnsMeeting() {
-		//Mockito.when(userServiceMock.findById(Mockito.any(Long.class))).thenReturn(mockedUser);
+	public void testUpdateMood_returnsMood() {
 		Mockito.when(moodDaoMock.updateMood(Mockito.any(MoodData.class))).thenReturn(mockedMood);
 		actualMood = moodService.updateMood(expectedMood);
 		Assert.assertTrue(new ReflectionEquals(expectedMood,"ts").matches(actualMood));
+		Assert.assertNotNull(actualMood.getTs());
 	}
+
 	
 	@Test
 	public void testConvertEntity_returnViewModel() {
@@ -110,6 +117,14 @@ public class MoodServiceTest {
 	public void testConvertViewModel_returnEntity() {
 		Mockito.when(userServiceMock.findById(Mockito.any(Long.class))).thenReturn(mockedUser);
 		Assert.assertTrue(new ReflectionEquals(mockedMood,"ts").matches(moodService.convertViewModel(expectedMood)));
+	}
+	
+	public void compareMoodLists(List<Mood> mockedMoodList) {
+		for(Mood moodActual : mockedMoodList){
+			for(Mood moodExpected: moodModelViewList ) {
+				Assert.assertTrue(new ReflectionEquals(moodExpected,"ts").matches(moodActual));
+			}	
+		}
 	}
 	
 
