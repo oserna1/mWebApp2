@@ -3,20 +3,20 @@ package com.mWebApp2.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.stereotype.Controller;
 
+import com.mWebApp2.manager.UserManager;
 import com.mWebApp2.model.User;
-import com.mWebApp2.service.UserService;
 
 @Controller
 public class WebAppController {
 	
 	@Autowired
-    private UserService userService;
+    private UserManager userManager;
 	
 	@RequestMapping(value = "/login/" , method=RequestMethod.GET)
 	public String completeLogin(@ModelAttribute (name="user") User user) {
@@ -29,7 +29,7 @@ public class WebAppController {
 		if(result.hasErrors()) {
 			System.out.println("Form has errors");
 			return "Login";
-		}else if(userService.findByEmail(user.getEmail()) != null){
+		}else if(userManager.getUserbyId(user.getId()) != null){
 			return "redirect:/admin/";
 		}
 		
